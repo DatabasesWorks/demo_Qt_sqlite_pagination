@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sql_create_table.txt</file>
+        <file>sql_insert_data.txt</file>
+        <file>words.txt</file>
+        <file>paginate_query.txt</file>
+    </qresource>
+</RCC>

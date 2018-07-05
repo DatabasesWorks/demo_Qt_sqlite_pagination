@@ -1,0 +1,77 @@
+Nach wochenlangem Machtkampf in der Union und Ärger in der Koalition haben sich CDU, CSU und SPD auf ein Paket gegen illegale Migration und eine Verschärfung der Asylpolitik geeinigt. Die SPD-Vorsitzende Andrea Nahles und Vizekanzler Olaf Scholz erklärten nach einem Koalitionsausschuss in Berlin, man habe sich darauf verständigt, dass Asylverfahren beschleunigt werden. Zudem solle ein Einwanderungsgesetz noch in diesem Jahr durchs Kabinett gebracht werden. Letzteres war eine zentrale SPD-Forderung gewesen.
+
+In dem Papier, das dem SPIEGEL vorliegt, vereinbarten die Koalitionspartner unter anderem folgende Punkte (Auszüge):
+
+Künftig sollen an der deutsch-österreichischen Grenze Personen, die bereits in einem anderen EU-Mitgliedsstaat Asyl beantragt haben, direkt in das zuständige Land zurückgewiesen werden, sofern mit diesem Staat ein entsprechendes Abkommen abgeschlossen wurde. Die Bundespolizei nutzt für das Transitverfahren ihre bestehenden Einrichtungen in Grenznähe. Die Zurückweisung erfolgt innerhalb von 48 Stunden.
+Auch national sollen die Zuständigkeitsfeststellung in Dublin-Fällen deutlich beschleunigt werden. Für Asylsuchende, die bereits in einem anderen EU-Mitgliedstaat registriert wurden, wird ein beschleunigtes Verfahren in Ankerzentren eingeführt. Im Rahmen der laufenden Dublin-IV-Reform wird sich Deutschland für eine effiziente Neugestaltung einsetzen. Ziel ist der Abschluss eines Dublin-Verfahrens in wenigen Tagen.
+Um die Quote der Dublin-Rücküberstellungen zu steigern, sollen mit verschiedenen EU-Mitgliedstaaten Verwaltungsabkommen geschlossen werden. Außerdem soll der Dublin-Bereich des Bundesamts für Migration und Flüchtlinge (Bamf) personell erheblich verstärkt werden.
+Deutschland wird die EU-Mitgliedstaaten an Europas Außengrenzen unterstützen. Mit Spanien und Griechenland etwa ist vereinbart, die Fälle der Familienzusammenführungen schrittweise abzuarbeiten.
+Um die Rückkehr weiter zu beschleunigen, wird der Bund die Rückführungen von Dublin-Fällen aus den Ankerzentren übernehmen, soweit die jeweiligen Länder dies wünschen. Auch die eigentliche Rückführung soll künftig ausschließlich vom Bamf und nicht mehr von der Ausländerbehörde durchgeführt
+Außerdem wurde beschlossen, den Ausbau der Grenzschutzagentur Frontex zu unterstützen, sich für den Kampf gegen europaweiten Visumsmissbrauch einzusetzen und noch in diesem Jahr einen Entwurf für ein Fachkräfteeinwanderungsgesetz einzubringen.
+NACH MEHREREN SKANDALEN :
+Amerikanischer Umweltbehördenchef Pruitt zurückgetreten
+AKTUALISIERT AM 05.07.2018-22:34
+ Scott Pruitt bei einer Kabinettssitzung im Weißen Haus in Washington Mitte Juni dieses Jahres
+Bildbeschreibung einblenden
+
+Der umstrittene Direktor der amerikanischen Umweltbehörde EPA Scott Pruitt stellt sein Amt zur Verfügung. Die Liste der Vorwürfe gegen ihn wurde immer länger.
+Nach einer ganzen Serie von Skandalen tritt der Chef der amerikanischen Umweltbehörde EPA, Scott Pruitt, zurück. Präsident Donald Trump schrieb am Donnerstag auf Twitter, er akzeptiere Pruitts Rücktritt. Dieser war erwartet und von Kritikern bereits seit Monaten gefordert worden – Trump hatte aber lange eisern zu Pruitt gehalten.
+
+Zur Liste der Vorwürfe gegen Pruitt gehören die Verschwendung von Steuergeld, die Installation einer privaten Telefonkabine in seinem Büro für 43.000 Dollar, Nepotismus und der Einsatz von Mitarbeitern für private Zwecke. So machte Pruitt mit seinen ausufernden Reisekosten von sich reden sowie mit seinem Wunsch nach zusätzlichem Sicherheitsschutz und außergewöhnlichen Lohnerhöhungen für vertraute Berater. Auch ein für ihn vorteilhaftes Mietgeschäft mit der Frau eines Lobbyisten, der mit der EPA in Verhandlungen stand, sorgte für Aufsehen. Gegen Pruitt laufen eine ganze Reihe regierungsinterner Untersuchungen.
+
+„Herausragende Arbeit“
+Trotz der vielen Vorwürfe hatte Trump lange keinerlei Distanz zu Pruitt erkennen lassen. Erst am Mittwoch hatte sich das Weiße Haus besorgt über die anhaltenden Negativberichte geäußert. Trump lobte Pruitt am Donnerstag gleichwohl dafür, dass er „herausragende Arbeit“ geleistet habe, und bekundete: „Ich werde ihm dafür immer dankbar sein.“ Die Behördenleitung soll vorübergehend der stellvertretende EPA-Direktor Andrew Wheeler übernehmen.
+import numpy as np
+import pandas as pd
+from keras.models import Sequential
+from keras.layers.advanced_activations import LeakyReLU
+from keras.layers import Dense, Activation
+from keras import backend as K
+from sklearn.model_selection import train_test_split
+
+df=pd.read_hdf('C:/Users/XYstore/full_data.h5')
+
+df['Y1'].dropna(inplace=True)
+Y=df['Y1'].values
+df.drop(label='Y1',inplace=True,axis=1)
+
+colms=df.columns.values
+X = df[colms].values
+
+
+dim=len(list(df.columns.values))
+seed=7
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.15, random_state=seed)
+
+model = Sequential()
+model.add(Dense(1123, input_dim=dim))
+model.add(LeakyReLU())
+model.add(Dense(800))
+model.add(LeakyReLU())
+model.add(Dense(700))
+model.add(LeakyReLU())
+model.add(Dense(100))
+model.add(LeakyReLU())
+model.add(Dense(50))
+model.add(LeakyReLU())
+model.add(Dense(1,activation='linear'))
+model.compile(loss='mean_squared_error',
+              optimizer='Adagrad',
+              metrics=['mse', 'mae', 'mape', 'cosine'])
+
+
+# evaluate model with standardized dataset
+model.fit(X_train, y_train, validation_data=(X_test,y_test), epochs=1500000, batch_size=100)
+Marktplatz-Inserat
+Fahrzeug inserieren!
+Millionen Interessenten erreichen!
+Zum Top-Preis verkaufen!
+
+
+Express-Verkauf
+Kostenlose Online-Bewertung
+Geprüften Händler in der Nähe finden
+Direkte Abwicklung vor Ort & sicherer Verkauf
+
+Gebrauchtwagen gesucht?
+Hier finden Sie gebrauchte Autos in allen Preis -und Fahrzeugkategorien.
