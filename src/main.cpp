@@ -28,13 +28,20 @@ int main(int argc, char *argv[])
     db.open();
 
     QStringList words = getQuery(":/words.txt").split(" ");
+
     QSqlQuery q(db);
     q.exec(getQuery(":/sql_create_table.txt"));
 
+    QSet<QString> unique_words;
+    for ( auto w : words ){
+        unique_words.insert(w);
+    }
+
     q.prepare(getQuery(":/sql_insert_data.txt"));
     db.transaction();
-    for ( int i = 0; i < words.count(); i++ ){
-        q.bindValue(0,words.at(i));
+    QStringList uniqueWordList = unique_words.values();
+    for ( int i = 0; i < uniqueWordList.count(); i++ ){
+        q.bindValue(0,uniqueWordList.at(i));
         q.bindValue(1,i);
         q.exec();
     }
